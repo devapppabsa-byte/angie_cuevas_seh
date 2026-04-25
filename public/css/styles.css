@@ -1,0 +1,324 @@
+@import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Rowdies:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
+
+
+/* tipo de letras */
+.lexend {
+  font-family: "Lexend", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+/* tipo de letras */
+
+
+body{
+
+     /* background-image: url('/img/fondo_extintores.jpg');   */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+  }
+
+  .sombra-filas {
+    background-color: #fdfdfd;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px 1px rgba(18, 18, 18, 0.3);
+
+    }
+
+
+
+.sombra-encabezados{
+    box-shadow: 4px 2px 2px 2px rgba(0,0,0,0.22);
+}
+
+.sombra-contenedor{
+    box-shadow: 10px 10px 10px 10px rgba(0,0,0,0.22);
+}
+
+/* .sombra-adentro{
+    box-shadow: inset 1px 2px 3px 3px rgba(0, 0, 0, 0.5); /* Sombra hacia dentro */ 
+
+
+#mapContainer {
+        width: 100%;
+        height: 100%;
+      }
+
+.flotante{
+    position: fixed;
+    bottom: 40px;
+    left: 40px;
+    z-index: 3;
+    width: 100px;
+    height: 100px;
+    
+}
+
+.notificacion{
+    position: absolute;
+    width: 200px;
+    top: 100px;
+    right: 8px;
+    z-index: 3; 
+}
+
+
+
+.menu-contratistas{
+    background: 
+    linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)),
+    url('/img/contratistas.webp');
+    background-position: center;
+    background-repeat: no-repeat;
+
+    background-size: cover;
+    height: 50%;
+}
+
+
+.menu-extintores{
+    background: 
+    linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)),
+    url('/img/extintores.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 50%;
+}
+
+.menu-brigadas{
+    background: 
+    linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)),
+    url('/img/img/brigadas.webp');
+    background-position: center;
+    background-repeat: no-repeat;   
+    background-size: cover;
+    height: 50%;
+}
+
+.notificaciones{
+    font-family: "Arimo", serif;
+}
+
+
+
+
+
+
+
+.fondo-login{
+    background-image: url('/img/fondo.jpg');
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+}
+
+
+.desautorizado{
+
+    background-color: rgba(128, 128, 128, 0.1902); /* Gris con 50% de transparencia */
+    color: white; /* Color del texto dentro del div */
+    padding: 20px; /* Espaciado interno */
+    border-radius: 10px; /* Esquinas redondeadas */
+    color: black;
+
+}
+
+/* Estilos para empresas_agregar.blade.php */
+.sombra-contenedor {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.sombra-encabezados {
+    background-color: #0d6efd;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(13, 110, 253, 0.3);
+    color: white;
+    margin-bottom: 2rem;
+}
+
+.sombra-encabezados h4 {
+    color: white;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.sombra-encabezados .btn-primary {
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid white;
+    color: white;
+    font-weight: 500;
+    padding: 0.5rem 2rem;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+}
+
+.sombra-encabezados .btn-primary:hover {
+    background: white;
+    color: #0d6efd;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.sombra-filas {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.sombra-filas:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    border-color: #0d6efd;
+}
+
+.sombra-filas .h4 {
+    color: #212529;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    transition: color 0.3s ease;
+}
+
+.sombra-filas .h4:hover {
+    color: #0d6efd;
+}
+
+.sombra-filas hr {
+    border-color: rgba(13, 110, 253, 0.2);
+    margin: 1.5rem 0;
+}
+
+.sombra-filas b {
+    color: #495057;
+    font-weight: 600;
+}
+
+.sombra-filas a {
+    color: #0d6efd;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    padding: 0.25rem 0;
+    border-radius: 4px;
+}
+
+.sombra-filas a:hover {
+    color: #0a58ca;
+    background: rgba(13, 110, 253, 0.1);
+    transform: translateX(3px);
+}
+
+.sombra-filas .text-danger {
+    color: #dc3545 !important;
+    font-weight: 500;
+    padding: 0.5rem;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.sombra-filas .text-danger:hover {
+    background: rgba(220, 53, 69, 0.1);
+    transform: scale(1.05);
+}
+
+.sombra-filas .fa-eraser {
+    margin-right: 0.5rem;
+}
+
+.bg-dark h3 {
+    background-color: #212529;
+    margin: 0;
+    padding: 1.5rem;
+    border-radius: 12px 12px 0 0;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+/* Mejoras para notificaciones */
+.notificacion {
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    margin: 1rem 0;
+    animation: slideInDown 0.5s ease;
+}
+
+@keyframes slideInDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .sombra-filas {
+        margin: 0.5rem 0;
+    }
+    
+    .sombra-encabezados {
+        margin-bottom: 1rem;
+        padding: 1rem;
+    }
+    
+    .sombra-encabezados h4 {
+        font-size: 1.25rem;
+    }
+}
+
+/* CAROUSEL DE LOS EXTINTORES  */
+
+.slick-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slick-slide img {
+    width: 100%;
+    height: 200px;
+    display: block;
+}
+
+.slider-container {
+    width: 100%;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+
+}
+
+/* CAROUSEL DE LOS EXTINTORES  */
+
+
+
+
+/* magnificando las imagenes */
+
+.image-magnifique{
+    transition: transform .4s ease;
+    cursor: pointer;
+}
+
+.image-magnifique:hover{
+    transform: scale(1.2);
+}
+
+.button-zoom{
+    transition: transform .4s ease;
+    cursor: pointer;
+}
+
+.button-zoom:hover{
+    transform: scale(1.04);
+}
