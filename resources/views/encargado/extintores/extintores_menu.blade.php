@@ -6,22 +6,25 @@
     
 
 
-    <div class="row justify-content-center border border-bottom text-danger mb-3" >  
+    <div class="row justify-content-center" >  
 
-        <div class="col-12 p-1">
+        <div class="col-auto p-1 text-danger rounded">
             <div class="row d-flex align-items-center justify-content-center">
                 <div class="col-12 text-center">
-                    <h2  class="mt-2 mx-2">
+                    <h1  class="mt-2 mx-2 fw-bold display-8">
                         <i class="fa-solid fa-fire-extinguisher"></i>
                         EXTINTORES
-                    </h2>
+                    </h1>
                     @auth() 
                     <strong class="mx-2 text-uppercase">{{Auth::user()->planta}}</strong> <br>
-                    @endauth
-                    
-                    <a href="{{route('perfil.encargado')}}" class="text-white" >Atras</a>
+                    @endauth                    
                 </div>
-                <div class="col-4"></div> {{--colabora a hacer esopacio de momento --}}
+                <div class="col-4">
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#agregar" class="btn btn-danger btn-sm  mt-1 w-100">
+                        {{-- <i class="fa-solid fa-charging-station"></i> --}}
+                        <i class="fa fa-plus-circle"></i>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
@@ -33,42 +36,33 @@
         <div class="col-12">
             <div class="row">
                 
-                <div class="col-sm-4 col-md-4 col-lg-3">
+                <div class="col-12">
                     <form action="{{route('buscar.extintor')}}" method="POST">
                         @csrf
-                     <input type="search" placeholder="Agente extintor o ubicación" name="query" class="form-control border border-5">
+                     <input type="search" placeholder="Buscar Extintor" name="query" class="form-control form-control-lg fw-bold p-3">
                 </div>
-                <div class="col-sm-12 col-md-4 col-lg-2 mb-3">
+                {{-- <div class="col-sm-12 col-md-4 col-lg-2 mb-3">
                     <button class="btn text-white mt-1 w-100 btn-danger">
                         <i class="fa fa-search"></i>
                         Buscar 
                     </button>
                     </form>
-                </div>
+                </div> --}}
 
 
-               <div class="col-sm-12 col-md-12 col-lg-6 text-center">
-                    @if ($errors->any())
-                        <strong class="text-danger">Errores al llenar formulario: </strong>
-                        @foreach ($errors->all() as $error)
-                            <li>{{$error}}</li>
-                        @endforeach
-                    @endif
-               </div>   {{--Esta para hacer espacio --}}
-
-
-
-               <div class="col-sm-12 col-md-6 col-lg-1">
-                <a href="#" data-bs-toggle="modal" data-bs-target="#agregar" class="btn btn-dark  mt-1 w-100">
-                    <i class="fa-solid fa-charging-station"></i>
-                    <i class="fa fa-plus"></i>
-                </a>
-               </div>
+                @if ($errors->any())
+                    <div class="col-sm-12 col-md-12 col-lg-6 text-center">
+                            <strong class="text-danger">Errores al llenar formulario: </strong>
+                            @foreach ($errors->all() as $error)
+                                <li>{{$error}}</li>
+                            @endforeach
+                    </div>   {{--Esta para hacer espacio --}}
+                @endif
             </div>
         </div>
     </div>
 
-    <div class="row my-4 p-5 d-flex justify-content-center border border-top" >
+    <div class="row my-4 p-5 d-flex justify-content-center " >
 
         <div class="col-12 text-center mb-4">
                <strong class="h5 fw-bold" style="text-decoration: underline"> Pagina: {{ $extintores->currentPage() }}  </strong>

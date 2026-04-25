@@ -14,7 +14,7 @@
 
         @endif
       </div>
-      <div class="flex-initial mx-2">
+      <div class="flex-initial mx-2 text-center">
         @if ($empresa[0]->sua == null)
           <small class="text-decoration-underline fw-bold" onclick="alert('Aún no cargan este documento')">
               Aún no se agrega SUA / Pago
@@ -31,18 +31,6 @@
       </div>
     </div>
   
-  
-    {{-- <div class="row border mt-3  p-3 sombra-encabezados">
-      <div class="col-auto">
-        <input type="search" class="form-control" autofocus>
-      </div>
-      <div class="col-auto mt-1">
-        <button class="btn btn-success btn-sm">
-          <i class=" fa fa-magnifying-glass"></i>
-          BUSCAR
-        </button>
-      </div>
-    </div> --}}
   
   
   
@@ -212,10 +200,10 @@
 
         <div class="row justify-content-center mt-5">
           <div class="col-3 text-center">
-            <img src="/img/img/vacio.png" class="img-fluid" alt="">
+            <img src="{{asset('img/img/empty.gif')}}" class="img-fluid" alt="">
           </div>
-          <div class="col-12 text-center">
-            <h3>No hay datos por aqui</h3>
+          <div class="col-12 text-center concert-one-regular">
+            <h3>No hay datos por aqui.</h3>
           </div>
         </div>
       

@@ -1,67 +1,91 @@
 @extends('plantilla')
 @section('contenido')
-  
+<style>
+  body{
+    background-image: url("{{ asset('img/fondo.jpg') }}");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    /* Opcional: Fija el fondo para efecto parallax */
+    background-attachment: fixed;
+  }
+</style>
 
 
-    <!-- Start your project here-->
-    <div class="login-shell fondo-login">
-      <div class="login-card p-4 p-md-4">
-        <div class="text-center stack">
-          <div>
-            <h1 class="lexend fw-bold mb-0">SEH</h1>
-            <div class="app-muted">Acceso al sistema</div>
+
+
+
+<div class="container-fluid">
+  <div class="row justify-content-center mt-4">
+    <div class="col-8 col-sm-8 col-md-5 col-lg-3">
+      <div class="card  p-4 p-md-5 border-0 shadow">
+        <div class="text-center">
+          <div class="mb-4">
+            <h1 class="lexend fw-bold mb-0 display-4">SEH</h1>
+            <p class="text-muted">Acceso al sistema</p>
           </div>
-
-          <div>
-            <img src="img/angie.png" id="logo" class="img-fluid animate__animated" style="width: 100px; height: 100px;" alt="">
+      
+          <div class="mb-4">
+            <img src="img/angie.png" id="logo" class="img-fluid animate__animated rounded-circle shadow-4-strong" style="width: 120px; height: 120px;" alt="">
           </div>
-
-          <div class="stack">
+      
+          <div class="mb-4">
             @if (session('error_sesion_admin'))
-                <span class="text-danger fw-bold">{{session('error_sesion_admin')}}</span>
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                  <i class="fas fa-exclamation-triangle me-2"></i>{{session('error_sesion_admin')}}
+                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
             @endif      
-
+      
             @if (session('error_sesion_encargado'))
-               <span class="text-danger fw-bold"> {{session('error_sesion_encargado')}}</span>
+               <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                 <i class="fas fa-exclamation-triangle me-2"></i>{{session('error_sesion_encargado')}}
+                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+               </div>
             @endif
-
+      
             @if (session('error_sesion_contratista'))
-               <span class="text-danger fw-bold"> {{session('error_sesion_contratista')}}</span>
+               <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                 <i class="fas fa-exclamation-triangle me-2"></i>{{session('error_sesion_contratista')}}
+                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+               </div>
             @endif
             @if (session('error_sesion_comision'))
-              <span class="text-danger fw-bold"> {{session('error_sesion_comision')}}</span>
+              <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <i class="fas fa-exclamation-triangle me-2"></i>{{session('error_sesion_comision')}}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
             @endif
           </div>
         </div>
-
+      
         {{-- {{Auth::guard('encargado')->user()->name}} --}}
-
+      
         <form method="POST" action="{{route('login')}}" class="mt-4">
           @csrf
-          <div class="stack">
-            <div>
-              <small class="fw-bold h6">Selecciona tu tipo de usuario</small>
-              <div class="mt-2">
-                <select class="form-select" name="rol" id="rol">
-                  <option value="encargado">Encargado de SEH</option>
-                  {{-- <option value="administrador">Admnistrador</option> --}}
-                  <option value="empresa">Empresa</option>
-                  {{-- <option value="comision">Comisión</option> --}}
-                </select>
-              </div>
-            </div>
-
-            <div class="mb-3">
-              <label for="email" class="form-label fw-bold">Correo Electrónico</label>
-              <input type="email" class="form-control" name="email" id="email" placeholder="correo@ejemplo.com" required>
-            </div>
-
-            <div class="mb-3">
-              <label for="password" class="form-label fw-bold">Contraseña</label>
-              <input type="password" class="form-control" name="password" id="password" placeholder="Ingresa tu contraseña" required>
-            </div>
-
-            <button type="submit" class="btn btn-danger btn-lg w-100" id="loginBtn">
+          
+          <div class="form-outline mb-4">
+            <label class="form-label fw-bold" for="rol">Selecciona tu tipo de usuario</label>
+            <select class="form-select form-select-lg" name="rol" id="rol">
+              <option value="encargado">Encargado de SEH</option>
+              {{-- <option value="administrador">Admnistrador</option> --}}
+              <option value="empresa">Empresa</option>
+              {{-- <option value="comision">Comisión</option> --}}
+            </select>
+          </div>
+      
+          <div class="form-outline mb-4">
+            <label class="form-label" for="email">Correo Electrónico</label>
+            <input type="email" class="form-control form-control-lg" name="email" id="email" placeholder="correo@ejemplo.com" required>
+          </div>
+      
+          <div class="form-outline mb-4">
+            <label class="form-label" for="password">Contraseña</label>
+            <input type="password" class="form-control form-control-lg" name="password" id="password" placeholder="Ingresa tu contraseña" required>
+          </div>
+      
+          <div class="d-grid gap-2">
+            <button type="submit" class="btn btn-danger btn-lg btn-block ripple-surface" id="loginBtn" data-mdb-ripple-init>
               <span id="btnText">
                 <i class="fas fa-sign-in-alt me-2"></i>Entrar
               </span>
@@ -73,7 +97,13 @@
           </div>
         </form>
       </div>
-    </div> {{-- Aqui termina el container del login --}}
+    </div>
+  </div>
+</div>
+
+
+
+
 
       
       

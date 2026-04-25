@@ -2,7 +2,7 @@
 @section('contenido')
 
 <style>
-  .contratistas-bg{
+  body{
     background-image: url('/img/fondo_contraistas.jpg');
     background-size: cover;
     background-repeat: no-repeat;
@@ -12,91 +12,96 @@
   }
 </style>
 
-<div class="contratistas-bg">
-<div class="app-container">
-<div class="app-surface"> <!-- Este DIV cierra todo el documento -->
 
-    <div class="page-header">
-      <div>
-        <h2 class="page-title">{{Auth::guard('empresa')->user()->nombre}}</h2>
-        <div class="page-subtitle">Gestión de trabajadores</div>
-      </div>
-      <div>
+<div class="container-fluid">
+  <div class="row d-flex align-items-center bg-white mx-2 rounded p-3">
+    <div class="col-8 col-sm-10 col-md-9 col-lg-10">
+      <h2 class="page-title">
+      <i class="fa-solid fa-helmet-safety text-danger"></i>
+        {{Auth::guard('empresa')->user()->nombre}}
+      </h2>
+      <span> Gestión de trabajadores</span>
+    </div>
+
+    <div class="col-4 col-sm-2 col-md-3 col-lg-2 text-end">
         <form action="{{route('cerrar.sesion')}}" method="POST">
           @csrf
-          <button type="submit" class="btn">
+          <button type="submit" class="btn btn-info btn-sm">
             <i class="fa fa-power-off"></i>
-            Cerrar sesión
+            Cerrar Sesión
           </button>
         </form>
-      </div>
     </div>
+  </div>
 
-    <div class="page-body">
-
-    <div class="row">
-      <div class="alert alert-success py-1">
-        * Dentro de este apartado podras <b> incribir a tus trabajadores para que puedan ingresar </b> a las instalaciones.
-      </div>
+  <div class="row mx-2">
+    <div class="col-12 bg-success text-white py-1">
+      * Dentro de este apartado podras <b> incribir a tus trabajadores para que puedan ingresar </b> a las instalaciones.
     </div>
+  </div>
 
-    <div class="row justify-content-center border p-3 sombra-encabezados bg-white">
-  
-      <!-- <div class="col-4"></div> -->
-  
-      <div class="col-12 text-center mb-1">
-        @if (session('add_sua'))
-            <h6 class="text-success">{{session('add_sua')}}</h6>
-        @endif
 
-        @if (session('eliminado'))
-        <h6 class="text-danger">{{session('eliminado')}}</h6>
-        @endif
-      </div>
+  <div class="row justify-content-center border p-3  bg-white mx-2">
 
-      {{-- <div class="col-12 text-center mb-1">
-        <form action="#" method="POST">
-          @csrf
-          <button class="btn btn-light btn-sm">Cerrar sesión</button>
-        </form>
-      </div> --}}
-  
-  
-  
-      <div class="col-1 mb-2">
-        <button class=" btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
-          <i class=" fa fa-user-plus"></i>
-        </button>
-      </div>
-  
-      <div class="col-auto mb-2">
-      @if (!(Auth::guard('empresa')->user()->sua))
-        <button class=" btn btn-info btn-sm py-1" data-bs-toggle="modal" data-bs-target="#sua">
-          <i class="fa fa-file"></i>
-          Subir SUA / PAGO 
-        </button>
-          
-      @else
-      <a href="{{Storage::url(Auth::guard('empresa')->user()->sua)}}" target="_blank" class=" btn btn-dark btn-sm py-1">
-        <i class="fa fa-file"></i>
-          Ver SUA / PAGO 
-      </a>
-      
-      <button class=" btn btn-info btn-sm py-1" data-mdb-ripple-init data-mdb-modal-init data-mdb-target="#sua">
-        <i class="fa fa-file"></i>
-        Actualizar SUA / Pago 
-      </button>
+    <!-- <div class="col-4"></div> -->
+
+    <div class="col-12 text-center mb-1">
+      @if (session('add_sua'))
+          <h6 class="text-success">{{session('add_sua')}}</h6>
       @endif
 
+      @if (session('eliminado'))
+      <h6 class="text-danger">{{session('eliminado')}}</h6>
+      @endif
+  </div>
 
-      </div>
-  
-  
-  
+    {{-- <div class="col-12 text-center mb-1">
+      <form action="#" method="POST">
+        @csrf
+        <button class="btn btn-light btn-sm">Cerrar sesión</button>
+      </form>
+    </div> --}}
+
+
+
+    <div class="col-auto mb-2">
+      <button class=" btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <i class=" fa fa-user-plus"></i>
+        Trabajador 
+      </button>
     </div>
-  
-  
-    <hr>
+
+    <div class="col-auto mb-2">
+    @if (!(Auth::guard('empresa')->user()->sua))
+      <button class=" btn btn-info btn-sm py-1" data-bs-toggle="modal" data-bs-target="#sua">
+        <i class="fa fa-file"></i>
+        Subir SUA / PAGO 
+      </button>
+        
+    @else
+    <a href="{{Storage::url(Auth::guard('empresa')->user()->sua)}}" target="_blank" class=" btn btn-dark btn-sm py-1">
+      <i class="fa fa-file"></i>
+        Ver SUA / PAGO 
+    </a>
+    
+    <button class=" btn btn-info btn-sm py-1" data-mdb-ripple-init data-mdb-modal-init data-mdb-target="#sua">
+      <i class="fa fa-file"></i>
+      Actualizar SUA / Pago 
+    </button>
+    @endif
+
+
+    </div>
+
+
+
+  </div>
+
+</div>
+
+
+
+
 
 @php
     $id = Auth::guard('empresa')->user()->id;

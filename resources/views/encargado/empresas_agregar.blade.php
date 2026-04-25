@@ -18,17 +18,22 @@
 </div>   
 @endif
 
-<div class="container-fluid bg-white  mt-2">
+<div class="container-fluid bg-white text-primary mt-2">
 
-    <div class="row border p-3 justify-content-center">
+    <div class="row p-3 justify-content-center">
       <div class="col-12 text-center">
-        <h4>Gestionar empresas contratistas.</h4>
+        <h1 class="display-8 fw-bold">
+            <i class="fa-regular fa-building mx-2 "></i>        
+          GESTIONAR EMPRESAS
+        </h1>
+        @auth() 
+        <strong class="mx-2 text-uppercase">{{Auth::user()->planta}}</strong> <br>
+        @endauth   
       </div>
 
-      <div class="col-12 text-center">        
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#agregar_empresa">
-            <i class="fa-regular fa-building mx-2 "></i>
-            Agregar empresas
+      <div class="col-1   text-center">        
+        <button type="button" class="btn btn-primary w-100 btn-sm" data-bs-toggle="modal" data-bs-target="#agregar_empresa">
+            <i class="fa fa-plus-circle"></i>
         </button>
       </div>
     </div>
@@ -43,11 +48,11 @@
 
   
   {{-- Tarjetas con la información de los contratistas --}}
-    <div class="row mt-4 justify-content-center">  
+    <div class="row mt-4 border">  
   
 @forelse ($empresas as $empresa)
       
-      <div class="col-sm-12 col-md-8 col-lg-3 border p-3 sombra-filas mx-2 my-3">        
+      <div class="col-8 col-sm-6 col-md-4 col-lg-3 p-3 sombra-filas mx-2 my-3">        
 
           <div class="row">
   
@@ -238,14 +243,14 @@
 @empty
 
 
-    <div class="row justify-content-center mt-5">
-      <div class="col-3 text-center">
-        <img src="/img/img/vacio.png" class="img-fluid" alt="">
-      </div>
-      <div class="col-12 text-center">
-        <h3>No hay datos por aqui</h3>
-      </div>
-    </div>
+        <div class="row justify-content-center mt-5">
+          <div class="col-3 text-center">
+            <img src="{{asset('img/img/empty.gif')}}" class="img-fluid" alt="">
+          </div>
+          <div class="col-12 text-center concert-one-regular">
+            <h3>No hay datos por aqui.</h3>
+          </div>
+        </div>
 
       
     
