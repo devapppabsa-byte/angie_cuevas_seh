@@ -8,15 +8,15 @@
     background-repeat: no-repeat;
     background-position: center center;
     min-height: 100vh;
-    padding: 1.5rem 0 2.5rem;
+
   }
 </style>
 
 
-<div class="container-fluid">
-  <div class="row d-flex align-items-center bg-white mx-2 rounded p-3">
+<div class="container-fluid sticky-top">
+  <div class="row d-flex align-items-center bg-white  p-3">
     <div class="col-8 col-sm-10 col-md-9 col-lg-10">
-      <h2 class="page-title">
+      <h2 class="">
       <i class="fa-solid fa-helmet-safety text-danger"></i>
         {{Auth::guard('empresa')->user()->nombre}}
       </h2>
@@ -34,14 +34,14 @@
     </div>
   </div>
 
-  <div class="row mx-2">
+  <div class="row ">
     <div class="col-12 bg-success text-white py-1">
       * Dentro de este apartado podras <b> incribir a tus trabajadores para que puedan ingresar </b> a las instalaciones.
     </div>
   </div>
 
 
-  <div class="row justify-content-center border p-3  bg-white mx-2">
+  <div class="row justify-content-center border p-3  bg-white">
 
     <!-- <div class="col-4"></div> -->
 
@@ -73,8 +73,8 @@
 
     <div class="col-auto mb-2">
     @if (!(Auth::guard('empresa')->user()->sua))
-      <button class=" btn btn-info btn-sm py-1" data-bs-toggle="modal" data-bs-target="#sua">
-        <i class="fa fa-file"></i>
+      <button class=" btn btn-primary btn-sm py-1" data-bs-toggle="modal" data-bs-target="#sua">
+        <i class="fa-solid fa-file-pdf"></i>
         Subir SUA / PAGO 
       </button>
         
@@ -153,38 +153,44 @@
 
 
 
- <!-- Modal borrar trabajador -->
- <div class="modal fade" id="e{{$contratista->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header text-center">
-        <h5 class="modal-title" id="exampleModalLabel">ELIMINAR:  </h5> <br>
+    <!-- Modal borrar trabajador -->
+    <div class="modal fade" id="e{{$contratista->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header text-center">
+            <h5 class="modal-title" id="exampleModalLabel">ELIMINAR:  </h5> <br>
 
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body border text-center">
-        <h5>{{$contratista->nombre_completo}}</h5>
-        <form action="{{route('delete.contratista', $contratista->id)}}" method="POST" >
-          @csrf @method('DELETE')
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body border text-center">
+            <h5>{{$contratista->nombre_completo}}</h5>
+            <form action="{{route('delete.contratista', $contratista->id)}}" method="POST" >
+              @csrf @method('DELETE')
 
-      </div>
-      <div class="modal-footer">
-          <button class="btn btn-danger w-100 mt-3" data-mdb-ripple-init >ELIMINAR</button>
-      </form>
-          <button type="button" class="btn btn-primary w-100" data-bs-dismiss="modal" >CANCELAR</button>
-      </div>
+          </div>
+          <div class="modal-footer">
+              <button class="btn btn-danger w-100 mt-3" data-mdb-ripple-init >ELIMINAR</button>
+          </form>
+              <button type="button" class="btn btn-primary w-100" data-bs-dismiss="modal" >CANCELAR</button>
+          </div>
 
+        </div>
+      </div>
     </div>
-  </div>
-</div>
 
  <!-- Modal borrar trabajador -->
-
-
-
-
     @empty
         
+
+        <div class="row justify-content-center mt-5">
+          <div class="col-8 text-center bg-white rounded">
+            <img src="{{asset('img/img/empty.gif')}}" class="img-fluid" alt="">
+          </div>
+          <div class="col-8 text-center concert-one-regular bg-white rounded">
+            <h3>No hay datos por aqui.</h3>
+          </div>
+        </div>
+
     @endforelse
 
   

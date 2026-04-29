@@ -140,11 +140,16 @@
               <form action="{{route('empresa.delete', $empresa->id)}}" method="POST">
                 @csrf
                 <input type="hidden" name="id_empresa" value="{{$empresa->id}}" >
-                <button  class="btn btn-danger w-100 mt-3" >CONFIRMAR</button>
-
               </form>
 
-              <button type="button" class="btn btn-primary w-100 mt-2" data-bs-dismiss="modal" >CANCELAR</button>
+              <div class="row">
+                <div class="col-6">
+                  <button  class="btn btn-danger w-100 mt-3" >CONFIRMAR</button>
+                </div>
+                <div class="col-6">
+                  <button type="button" class="btn btn-primary w-100 mt-2" data-bs-dismiss="modal" >CANCELAR</button>
+                </div>
+              </div>
               
             </div>
           </div>
@@ -168,7 +173,7 @@
                 </div>
                 <div class="modal-body border">
 
-                  <form action="{{route('empresa.editar', $empresa->id)}}" method="POST">
+                  <form action="{{route('empresa.editar', $empresa->id)}}" id="form_contratistas" method="POST">
                     @csrf @method('patch')
                     <div class="form-goup m-2">
                         <label for="">Nombre Empresa: </label>
@@ -211,16 +216,24 @@
       
                 </div>
                 
+              </form>
                 
 
                 <div class="modal-footer">
-                  <button type="submit" class="btn btn-success w-100" data-mdb-ripple-init >
-                    CONFIRMAR
-                  </button>
-              </form>
-                  <button type="button" class="btn btn-warning w-100" data-bs-dismiss="modal" >
-                    CANCELAR
-                  </button>
+                  <div class="row">
+                    <div class="col-6">
+                      <button type="submit" form="form_contratistas" class="btn btn-success" data-mdb-ripple-init >
+                        CONFIRMAR
+                      </button>
+                    </div>
+                    <div class="col-6">
+                      <button type="button" class="btn btn-warning" data-bs-dismiss="modal" >
+                        CANCELAR
+                      </button>
+                    </div>
+                  </div>
+
+                  
                   
                 </div>
       
@@ -244,12 +257,17 @@
 
 
         <div class="row justify-content-center mt-5">
-          <div class="col-3 text-center">
-            <img src="{{asset('img/img/empty.gif')}}" class="img-fluid" alt="">
-          </div>
-          <div class="col-12 text-center concert-one-regular">
-            <h3>No hay datos por aqui.</h3>
-          </div>
+            <div class="col-12 d-flex flex-column align-items-center justify-content-center py-5">
+
+                <div class="bg-light rounded-circle d-flex align-items-center justify-content-center shadow-sm mb-3" 
+                    style="width: 100px; height: 100px;">
+                    <i class="fa-solid fa-box-open fa-3x text-secondary"></i>
+                </div>
+
+                <h4 class="fw-bold text-muted">No hay datos por aquí</h4>
+                <p class="text-secondary mb-0">Cuando haya información disponible, aparecerá en esta sección.</p>
+
+            </div>
         </div>
 
       

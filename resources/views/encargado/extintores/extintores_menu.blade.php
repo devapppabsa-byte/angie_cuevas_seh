@@ -160,13 +160,18 @@
 
         @empty
         <div class="row justify-content-center mt-5">
-            <div class="col-3 text-center">
-              <img src="/img/img/vacio.png" class="img-fluid" alt="">
+            <div class="col-12 d-flex flex-column align-items-center justify-content-center py-5">
+
+                <div class="bg-light rounded-circle d-flex align-items-center justify-content-center shadow-sm mb-3" 
+                    style="width: 100px; height: 100px;">
+                    <i class="fa-solid fa-box-open fa-3x text-secondary"></i>
+                </div>
+
+                <h4 class="fw-bold text-muted">No hay datos por aquí</h4>
+                <p class="text-secondary mb-0">Cuando haya información disponible, aparecerá en esta sección.</p>
+
             </div>
-            <div class="col-12 text-center">
-              <h3>No hay datos por aqui</h3>
-            </div>
-          </div>
+        </div>
         @endforelse
 
     </div>
