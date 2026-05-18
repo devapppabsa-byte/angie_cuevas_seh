@@ -22,7 +22,8 @@ class extintoresController extends Controller
 
     public function agregar_extintor(){
 
-        
+    
+
         request()->validate([
 
             'numero' => 'required|unique:extintores,numero',
