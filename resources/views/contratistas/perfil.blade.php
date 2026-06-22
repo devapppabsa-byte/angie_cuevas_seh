@@ -106,43 +106,124 @@
 
 
 @forelse ($contratistas as $contratista)
-    <div class="card mt-3 shadow-sm sombra-filas">
-      <div class="card-body py-3">
-        <div class="row g-2 align-items-center">
-          <div class="col-12 col-md-3">
-            <div class="d-flex align-items-center">
-              <div class="rounded-circle bg-primary bg-opacity-10 p-2 me-2 d-flex align-items-center justify-content-center" style="width: 36px; height: 36px;">
-                <i class="fa fa-user text-primary"></i>
-              </div>
-              <div>
-                <span class="fw-semibold text-dark">{{$contratista->nombre_completo}}</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-4 col-md-2">
-            <a href="{{Storage::url($contratista->nss)}}" target="_blank" class="btn btn-warning btn-sm w-100 text-dark">
-              <i class="fa fa-file-pdf me-1"></i> NSS
-            </a>
-          </div>
-          <div class="col-4 col-md-2">
-            <a href="{{Storage::url($contratista->ine)}}" target="_blank" class="btn btn-info btn-sm w-100 text-dark">
-              <i class="fa fa-file-pdf me-1"></i> INE
-            </a>
-          </div>
-          <div class="col-4 col-md-2">
-            <a href="{{Storage::url($contratista->dc3)}}" target="_blank" class="btn btn-success btn-sm w-100 text-dark" >
-              <i class="fa fa-file-pdf me-1"></i> DC3
-            </a>
-          </div>
-          <div class="col-12 col-md-3 text-md-end">
-            <a href="#" class="btn btn-danger btn-sm px-3 text-white" data-mdb-ripple-init data-bs-toggle="modal" data-bs-target="#e{{$contratista->id}}">
-              <i class="fa fa-eraser me-1"></i> Eliminar
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
+<div class="card border-0 shadow-sm rounded-4 overflow-hidden mt-3 sombra-filas">
+    <div class="card-body p-4">
+        <div class="row align-items-center g-3">
+            {{-- Usuario --}}
+            <div class="col-12 col-lg-4">
+                <div class="d-flex align-items-center">
+                    <div class="bg-primary bg-opacity-10 text-primary rounded-circle
+                                d-flex align-items-center justify-content-center me-3 shadow-sm"
+                         style="width:60px;height:60px;">
 
+                        <i class="fa fa-user fs-4"></i>
+                    </div>
+                    <div>
+                        <h5 class="fw-bold mb-1 text-dark">
+                            {{$contratista->nombre_completo}}
+                        </h5>
+                        <small class="text-muted">
+                            Contratista registrado
+                        </small>
+                        <div class="mt-1">
+                            @if ($contratista->autorizado_entrar)
+                                <span class="badge bg-success fs-6 p-2">
+                                    <i class="fa fa-check-circle me-1"></i> Autorizado
+                                </span>
+                            @else
+                                <span class="badge bg-danger fs-6 p-2">
+                                    <i class="fa fa-times-circle me-1"></i> No autorizado
+                                </span>
+                            @endif
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            {{-- Documentos --}}
+            <div class="col-12 col-lg-5">
+
+                <div class="row g-2">
+
+                    {{-- NSS --}}
+                    <div class="col-4">
+                        <a href="{{Storage::url($contratista->nss)}}"
+                           target="_blank"
+                           class="btn btn-light border rounded-3 w-100 p-2 hover-shadow">
+
+                            <div class="d-flex flex-column align-items-center">
+
+                                <div class="bg-warning bg-opacity-10 text-warning rounded-3 p-2 mb-1">
+                                    <i class="fa fa-file-pdf"></i>
+                                </div>
+
+                                <span class="fw-semibold text-dark small">
+                                    NSS
+                                </span>
+
+                            </div>
+
+                        </a>
+                    </div>
+
+                    {{-- INE --}}
+                    <div class="col-4">
+                        <a href="{{Storage::url($contratista->ine)}}"
+                           target="_blank"
+                           class="btn btn-light border rounded-3 w-100 p-2 hover-shadow">
+                            <div class="d-flex flex-column align-items-center">
+                                <div class="bg-info bg-opacity-10 text-info rounded-3 p-2 mb-1">
+                                    <i class="fa fa-id-card"></i>
+                                </div>
+                                <span class="fw-semibold text-dark small">
+                                    INE
+                                </span>
+                            </div>
+                        </a>
+                    </div>
+
+                    {{-- DC3 --}}
+                    <div class="col-4">
+                        <a href="{{Storage::url($contratista->dc3)}}"
+                           target="_blank"
+                           class="btn btn-light border rounded-3 w-100 p-2 hover-shadow">
+
+                            <div class="d-flex flex-column align-items-center">
+
+                                <div class="bg-success bg-opacity-10 text-success rounded-3 p-2 mb-1">
+                                    <i class="fa fa-certificate"></i>
+                                </div>
+
+                                <span class="fw-semibold text-dark small">
+                                    DC3
+                                </span>
+
+                            </div>
+
+                        </a>
+                    </div>
+
+                </div>
+
+            </div>
+
+            {{-- Acción --}}
+            <div class="col-12 col-lg-3 text-lg-end">
+
+                <a href="#"
+                   class="btn btn-outline-danger rounded-3 px-4 py-2"
+                   data-bs-toggle="modal"
+                   data-bs-target="#e{{$contratista->id}}">
+
+                    <i class="fa fa-trash me-2"></i>
+                    Eliminar
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 
@@ -222,9 +303,6 @@
                         <small class="text-muted">
                           <i class="fa fa-calendar me-1"></i>
                           {{ \Carbon\Carbon::parse($reglamento->created_at)->format('d/m/Y') }}
-                          <br>
-                          <i class="fa fa-clock me-1"></i>
-                          {{ \Carbon\Carbon::parse($reglamento->created_at)->format('H:i') }}
                         </small>
                       </td>
                       <td>

@@ -45,51 +45,83 @@
       
       <div class="col-12 col-sm-6 col-md-4 col-lg-3">        
         <div class="card sombra-filas h-100">
-          <div class="card-body d-flex flex-column">
-  
-            <div class="text-center mb-2">
-              <a class="fw-bold h5" href="{{route('trabajadores.empresas.contratistas', $empresa->id)}}">{{$empresa->nombre}}</a>
-            </div>
-            
-            <hr class="my-2">
+            <div class="card-body d-flex flex-column p-4">
 
-            <div class="mb-1">
-              <small class="text-muted">Email:</small><br>
-              <a href="mailto:{{$empresa->email}}" class="small">{{$empresa->email}}</a>
-            </div>
-    
-            <div class="mb-1">
-              <small class="text-muted">Contacto:</small><br>
-              <a href="tel:+52{{$empresa->telefono}}" class="small">
-                <i class="fa fa-square-phone me-1"></i>
-                {{$empresa->telefono}}
-              </a>
-            </div>
-    
-            <div class="mb-1">
-              <small class="text-muted">Dirección:</small><br>
-              <a href="#" class="small" data-bs-toggle="modal" data-bs-target="#map{{$empresa->id}}">
-                <i class="fa fa-map-location-dot me-1"></i>
-                {{$empresa->direccion}}
-              </a>
-            </div>
-    
-            <hr class="my-2 mt-auto">
-            
-            <div class="row g-1">
-              <div class="col-6">
-                <a href="#" class="btn btn-danger text-white btn-sm w-100" data-bs-toggle="modal" data-bs-target="#e{{$empresa->id}}">
-                  <i class="fa fa-eraser me-1"></i> Eliminar
+              <!-- Encabezado de la Tarjeta -->
+              <div class="text-center mb-3">
+                <a class="fw-bold h5 text-decoration-none text-dark link-primary stretched-link" 
+                  href="{{ route('trabajadores.empresas.contratistas', $empresa->id) }}">
+                  {{ $empresa->nombre }}
                 </a>
               </div>
-              <div class="col-6">
-                <a href="#" class="btn btn-primary text-white btn-sm w-100" data-bs-toggle="modal" data-bs-target="#edit{{$empresa->id}}">
-                  <i class="fa fa-edit me-1"></i> Editar
-                </a>
+              
+              <hr class="text-muted opacity-25 my-2">
+
+              <!-- Información de Contacto -->
+              <div class="d-flex flex-column gap-3 my-3">
+                
+                <!-- Email -->
+                <div class="d-flex align-items-center position-relative" style="z-index: 2;">
+                  <div class="icon-shape bg-light rounded p-2 me-3 text-muted">
+                    <i class="fa-solid fa-envelope fa-fw"></i>
+                  </div>
+                  <div class="text-truncate">
+                    <small class="text-muted d-block lh-1 mb-1">Correo Electrónico</small>
+                    <a href="mailto:{{ $empresa->email }}" class="text-secondary text-decoration-none small text-truncate d-block">
+                      {{ $empresa->email }}
+                    </a>
+                  </div>
+                </div>
+
+                <!-- Teléfono -->
+                <div class="d-flex align-items-center position-relative" style="z-index: 2;">
+                  <div class="icon-shape bg-light rounded p-2 me-3 text-muted">
+                    <i class="fa-solid fa-phone fa-fw"></i>
+                  </div>
+                  <div>
+                    <small class="text-muted d-block lh-1 mb-1">Contacto</small>
+                    <a href="tel:+52{{ $empresa->telefono }}" class="text-secondary text-decoration-none small fw-semibold">
+                      {{ $empresa->telefono }}
+                    </a>
+                  </div>
+                </div>
+
+                <!-- Dirección -->
+                <div class="d-flex align-items-center position-relative" style="z-index: 2;">
+                  <div class="icon-shape bg-light rounded p-2 me-3 text-muted">
+                    <i class="fa-solid fa-map-location-dot fa-fw"></i>
+                  </div>
+                  <div class="text-truncate">
+                    <small class="text-muted d-block lh-1 mb-1">Dirección</small>
+                    <a href="#" class="text-secondary text-decoration-none small text-truncate d-block" 
+                      data-bs-toggle="modal" data-bs-target="#map{{ $empresa->id }}" title="Ver en mapa">
+                      {{ $empresa->direccion }}
+                    </a>
+                  </div>
+                </div>
+
               </div>
+
+              <!-- Acciones (Empujadas al fondo) -->
+              <div class="mt-auto pt-2 position-relative" style="z-index: 2;">
+                <hr class="text-muted opacity-25 mb-3">
+                <div class="row g-2">
+                  <div class="col-6">
+                    <button type="button" class="btn btn-outline-danger btn-sm w-100 py-2 d-flex align-items-center justify-content-center gap-1" 
+                            data-bs-toggle="modal" data-bs-target="#e{{ $empresa->id }}">
+                      <i class="fa-solid fa-trash-can"></i> Eliminar
+                    </button>
+                  </div>
+                  <div class="col-6">
+                    <button type="button" class="btn btn-primary btn-sm w-100 py-2 d-flex align-items-center justify-content-center gap-1" 
+                            data-bs-toggle="modal" data-bs-target="#edit{{ $empresa->id }}">
+                      <i class="fa-solid fa-pen-to-square"></i> Editar
+                    </button>
+                  </div>
+                </div>
+              </div>
+
             </div>
-  
-          </div>
         </div>
       </div>
 

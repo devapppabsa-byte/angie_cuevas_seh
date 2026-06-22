@@ -126,15 +126,18 @@
                                         <small class="text-muted">
                                             <i class="fa fa-calendar me-1"></i>
                                             {{ \Carbon\Carbon::parse($reglamento->created_at)->format('d/m/Y') }}
-                                            <br>
-                                            <i class="fa fa-clock me-1"></i>
-                                            {{ \Carbon\Carbon::parse($reglamento->created_at)->format('H:i') }}
                                         </small>
                                     </td>
                                     <td>
                                         <a href="{{Storage::url($reglamento->ruta_reglamento)}}" target="_blank" class="btn btn-outline-primary btn-sm">
                                             <i class="fa fa-eye me-1"></i> Ver
                                         </a>
+                                        <form action="{{route('reglamento.eliminar', $reglamento->id)}}" method="POST" class="d-inline">
+                                            @csrf @method('DELETE')
+                                            <button type="submit" class="btn btn-outline-danger btn-sm" onclick="return confirm('¿Eliminar este reglamento?')">
+                                                <i class="fa fa-trash me-1"></i>
+                                            </button>
+                                        </form>
                                     </td>
                                 </tr>
                                 @endforeach
