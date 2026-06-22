@@ -187,14 +187,14 @@
 
             @endif
 
-            <a href="#"
+            {{-- <a href="#"
                class="btn btn-dark rounded-3 px-3 shadow-sm"
                data-bs-toggle="modal"
                data-bs-target="#pdf{{$contratista->id}}">
 
                 <i class="fa fa-file-pdf me-1"></i>
                 Formato de trabajo
-            </a>
+            </a> --}}
 
         </div>
 
