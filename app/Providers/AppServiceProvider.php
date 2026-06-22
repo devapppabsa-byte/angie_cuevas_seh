@@ -26,11 +26,16 @@ class AppServiceProvider extends ServiceProvider
             return Auth::guard($guard)->check();
         });
 
-                //con esta linea ayuda a que mis estillos se vean en ngrok y en local
+        Carbon::setLocale('es');
+        
+        //con esta linea ayuda a que mis estillos se vean en ngrok y en local
         if (str_contains(request()->getHost(), 'ngrok')) {
             URL::forceScheme('https');
         }
 
+         if (app()->environment('production')) {
+        URL::forceScheme('https');
+    }
         
     }
 }
