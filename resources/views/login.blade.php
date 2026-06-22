@@ -98,6 +98,26 @@
         </form>
       </div>
     </div>
+
+                <div class="col-10 shadow-sm p-3 m-3">
+                    <div class="row">
+                        <div class="col-3">
+                            <span class="fw-bold">Admin: </span>
+                        </div>
+                        <div class="col-9">
+                            <span>
+                                resendiz.galleta@gmail.com 
+                            </span>
+                        </div>
+                        <div class="col-3">
+                            <span class="fw-bold">Password:</span>
+                        </div>
+                        <div class="col-9">
+                            password
+                        </div>
+                    </div>
+                </div>
+
   </div>
 </div>
 
